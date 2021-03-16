@@ -1,9 +1,8 @@
  trigger:
-- '*'
-
  
+ - '*'
 
-pool:
+ pool:
 
   vmImage: 'ubuntu-18.04'
 
@@ -11,9 +10,7 @@ pool:
 
     - npm
 
- 
-
-variables:
+ variables:
 
   buildConfiguration: 'Release'
 
@@ -21,18 +18,13 @@ variables:
 
   dotnetSdkVersion: '3.1.300'
 
- 
+ steps:
+ - task: UseDotNet@2
 
-steps:
+   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+   inputs:
 
-- task: UseDotNet@2
-
-  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
-
-  inputs:
-
-    version: '$(dotnetSdkVersion)'
-
+    version: '$(dotnetSdkVersion)' 
  
 
 - task: Npm@1
