@@ -16,7 +16,7 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
- - task: Npm@1
+- task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
@@ -24,10 +24,10 @@ steps:
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
- - task: gulp@1
+- task: gulp@1
   displayName: 'Run gulp tasks'
 
- - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
